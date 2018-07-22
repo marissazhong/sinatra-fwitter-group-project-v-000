@@ -1,7 +1,7 @@
 <h1> <%= @tweet.content %> </h1>
 
 <p><%= @tweet.user_id %></p>
-<p><%= @tweet.user_id %></p>
+<p><%= current_user.id %></p>
 
 
 <a href="/tweets/<%= @tweet.id %>/edit">Edit Tweet</a>
