@@ -25,4 +25,11 @@ class TweetsController < ApplicationController
     erb :'/tweets/edit_tweet'
   end
 
+  patch '/tweets/:id' do
+    @tweet = Tweet.create(params[:tweet])
+    @tweet.update(params[:tweet])
+    @tweet.save
+    redirect to "/tweets/#{tweet.id}"
+  end
+
 end
