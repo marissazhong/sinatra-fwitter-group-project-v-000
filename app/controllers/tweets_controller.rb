@@ -34,7 +34,7 @@ class TweetsController < ApplicationController
         @tweet.save
         redirect to "/tweets/#{tweet.id}"
       else
-        redirect to "/tweets/:id/edit"
+        redirect to "/tweets/new"
       end
     else
       redirect to "/login"
