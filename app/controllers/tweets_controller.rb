@@ -10,7 +10,7 @@ class TweetsController < ApplicationController
   end
 
   get '/tweets' do
-    
+
   end
 
   post '/tweets' do
