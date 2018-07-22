@@ -32,7 +32,7 @@ class TweetsController < ApplicationController
       if params[:tweet][:content] != ""
         @tweet = Tweet.create(params[:tweet])
         @tweet.save
-        redirect to "/tweets/#{tweet.id}"
+        redirect to "/tweets/#{@tweet.id}"
       else
         redirect to "/tweets/new"
       end
