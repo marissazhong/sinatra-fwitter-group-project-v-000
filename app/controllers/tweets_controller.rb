@@ -43,12 +43,8 @@ class TweetsController < ApplicationController
 
   get '/tweets/:id/edit' do
     if logged_in?
-      if params[:tweet][:content] != ""
-        @tweet = Tweet.find_by_id(params[:id])
-        erb :'/tweets/edit_tweet'
-      else
-        redirect to "/tweets/new"
-      end
+      @tweet = Tweet.find_by_id(params[:id])
+      erb :'/tweets/edit_tweet'
     else
       redirect to "/login"
     end
@@ -56,10 +52,14 @@ class TweetsController < ApplicationController
 
   patch '/tweets/:id' do
     if logged_in?
-      @tweet = Tweet.find_by_id(params[:id])
-      @tweet.update(params[:tweet])
-      @tweet.save
-      redirect to "/tweets/#{tweet.id}"
+      if params[:tweet][:content] != ""
+        @tweet = Tweet.find_by_id(params[:id])
+        @tweet.update(params[:tweet])
+        @tweet.save
+        redirect to "/tweets/#{tweet.id}"
+      else
+        redirect to "/tweets/:id/edit"
+      end
     else
       redirect to "/login"
     end
