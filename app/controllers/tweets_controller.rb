@@ -20,4 +20,9 @@ class TweetsController < ApplicationController
     redirect to "/tweets/#{tweet.id}"
   end
 
+  get '/tweets/:id/edit' do
+    @tweet = Tweet.create(params[:tweet])
+    
+  end
+
 end
