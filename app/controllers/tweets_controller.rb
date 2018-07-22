@@ -31,7 +31,7 @@ class TweetsController < ApplicationController
     if logged_in?
       if params[:tweet][:content] != ""
         @tweet = Tweet.create(params[:tweet])
-        @tweet.user_id = current_user.id
+        @tweet.user = current_user
         @tweet.save
         redirect to "/tweets/#{@tweet.id}"
       else
