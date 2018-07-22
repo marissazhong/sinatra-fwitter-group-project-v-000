@@ -22,7 +22,7 @@ class TweetsController < ApplicationController
 
   get '/tweets/:id/edit' do
     @tweet = Tweet.create(params[:tweet])
-    
+    erb :'/tweets/edit_tweet'
   end
 
 end
