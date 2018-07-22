@@ -10,8 +10,10 @@ class TweetsController < ApplicationController
   end
 
   get '/tweets' do
-    @tweets = Tweet.all
-    erb :'/tweets/tweets'
+    if logged_in?
+      @tweets = Tweet.all
+      erb :'/tweets/tweets'
+    end
   end
 
   post '/tweets' do
