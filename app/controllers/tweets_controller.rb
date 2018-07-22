@@ -37,8 +37,12 @@ class TweetsController < ApplicationController
   end
 
   get '/tweets/:id/edit' do
-    @tweet = Tweet.create(params[:tweet])
-    erb :'/tweets/edit_tweet'
+    if logged_in?
+      @tweet = Tweet.create(params[:tweet])
+      erb :'/tweets/edit_tweet'
+    else
+      redirect to "/login"
+    end
   end
 
   patch '/tweets/:id' do
