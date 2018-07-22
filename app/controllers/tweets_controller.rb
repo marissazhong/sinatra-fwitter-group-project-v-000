@@ -29,7 +29,7 @@ class TweetsController < ApplicationController
 
   post '/tweets' do
     if logged_in?
-      if params[:tweet][:content] !== ""
+      if params[:tweet][:content] != ""
         @tweet = Tweet.create(params[:tweet])
         @tweet.save
         redirect to "/tweets/#{tweet.id}"
@@ -43,7 +43,7 @@ class TweetsController < ApplicationController
 
   get '/tweets/:id/edit' do
     if logged_in?
-      if params[:tweet][:content] !== ""
+      if params[:tweet][:content] != ""
         @tweet = Tweet.find_by_id(params[:id])
         erb :'/tweets/edit_tweet'
       else
